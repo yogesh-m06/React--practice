@@ -4,6 +4,7 @@ const CounterApp = () => {
 
 
   let [count, setcount] = useState(0)
+  let [ update , setupdate] = useState ("")
 
      let mAssage  ;
      let remaining = 10 - count 
