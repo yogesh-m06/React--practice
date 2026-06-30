@@ -4,10 +4,15 @@ const CounterApp = () => {
 
 
   let [count, setcount] = useState(0)
-  let [ update , setupdate] = useState ("")
+  let  [ data , setdata] = useState ("Error")
 
      let mAssage  ;
      let remaining = 10 - count 
+
+
+
+
+    
 
   function handleincrease (){
 
@@ -44,7 +49,21 @@ const CounterApp = () => {
              <p>YOU ARE  REACH THE TOP REWARDS! YOU ARE A CLICK MASTER  </p>
     </div>)
 
-    }   
+    }  ; 
+
+
+      let displaycomp  = ( ) =>{
+     switch (data) {
+      case "loading": return  <loadingComp/>
+      break;
+        case "sucess" : return  <sussessComp/>
+      break;
+        case "Error": return  <ErrorComp/>
+      break;
+
+     }}
+
+
 
   return (
     <div> 
@@ -52,7 +71,7 @@ const CounterApp = () => {
 
       <button  style = {{ background: "red"}} onClick={handleincrease} > Increase</button>
        {mAssage}
-      
+      {displaycomp ()}
       
       {/* {count <= 10 ? (<p>  click 10 time unlocked rewards</p>):
       (<p>10% discount</p>)} 
@@ -66,3 +85,23 @@ const CounterApp = () => {
 }
 
 export default CounterApp
+
+
+function loadingComp(){
+ 
+   return (  <h5> loading...😒</h5>   
+
+   )
+}
+function sussessComp (){
+ 
+   return (  <h5> sucess 😊</h5>   
+
+   )
+}
+function ErrorComp (){
+ 
+   return (  <h5> error 😡</h5>   
+
+   )
+}
